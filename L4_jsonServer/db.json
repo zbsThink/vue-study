@@ -1,0 +1,31 @@
+{
+    "phone":[
+        {
+            "id":1,
+            "name":"MI",
+            "price":5677
+        },
+        {
+            "id":2,
+            "name":"HuaWei",
+            "price":7878
+        },
+        {
+            "id":3,
+            "name":"iphone",
+            "price":12356
+        }
+    ],
+    "computer":[
+        {
+            "id":1,
+            "name":"ASUS",
+            "price":234456
+        },
+        {
+            "id":2,
+            "name":"DELL",
+            "price":757575
+        }
+    ]
+}

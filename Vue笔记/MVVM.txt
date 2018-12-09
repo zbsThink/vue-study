@@ -1,0 +1,2 @@
+1.MVVM：当View(视图）发生变化时，会自动更新ViewModel（视图模型），反之亦然，当model（模型）发生更新时也会更新ViewModel视图模型，反之亦然；View与ViewModel之间通过双向绑定建立联系
+2.vue.js通过MVVM模式拆分为数据和视图两部分，并将其分离，因此，你只需要关心数据即可，DOM的事情Vue会帮你搞定

@@ -1,0 +1,31 @@
+1.在webpack.dev.conf.js文件开头的const后面添加
+     代码：
+         //增加express
+         const express = require('express')
+          const app = express()
+          var appData = require('../goods.json')//获取json对象
+          var apiRoutes = express.Router()
+           //为了统一管理api接口，我们要在请求的路由前面都加上'/api'来表达这个路径是专门用来提供api数据的
+          app.use('/api',apiRoutes)
+2.在同文件的devServer属性的最后添加：
+   //增加路由规则
+   before（app){
+        app.get('/api/goods',(req,res)=>{
+              res.json({
+                 code:0
+                 data:goods })
+             })
+}
+3.通过npm install vue-resource安装vue-resource
+   在组件路口处（main.js)引入并使用vue-resource
+      import VueResource from 'vue-resource'
+      Vue.use(VueResource)
+4.重新运行项目 
+   npm run dev
+5.在实例中调用请求
+    this.$http.get('/api/goods')
+    .then(res=>{
+            this.goods = res.body.data})
+注意点：
+1.凡是修改了webpack.dev.conf.js文件的内容都要重新使用npm run dev
+2.凡是修改goods.json的数据的都要使用npm run dev
