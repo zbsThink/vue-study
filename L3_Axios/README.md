@@ -2,12 +2,16 @@
     中文：https://www.kancloud.cn/yunye/axios/234845
     github:https//github.com/axios/axios
     1. 安装
-       npm install axios
+       `npm install axios`
     2. 引入加载
+       ```
        import Axios from "axios"
        Vue.prototype.$axios = Axios
+       ```
     3. 请求
         * get请求：
+        
+        ```
             this.$axios("http://www.wwtliu.com/sxtstu/news/newsdetails.php",{
             params:{
              type:"junshi",
@@ -20,11 +24,14 @@
         .catch(error=>{
           console.log(error);
         })
+        ```
        * post请求
-         第一种格式：form-data:?name=iwen&age=20
-         第二种格式：x-www-form-urlencoded:{name:'iwen',age:20}
+         第一种格式：`form-data:?name=iwen&age=20`
+         第二种格式：`x-www-form-urlencoded:{name:'iwen',age:20}`
          注意：axios请求接受的post发请求的参数的格式是form-data格式
                报错解决方法：一般来说我们写的都是第二种格式此时我们可以通过引入一个qs库，然后调用其中的stringify方法将其转换为第二种格式
+               
+         ```
          this.$axios.post('http://www.wwtliu.com/sxtstu/blueberrypai/login.php',qs.stringify({
             user_id:"iwen@qq.com",
             password:"iwen123",
@@ -36,7 +43,9 @@
         .catch(error=>{
             console.log(error)
         })
+        ```
     4. 全局的axios默认值
+    
     ```
     axios.defaults.baseURL = 'https://api.example.com';
     axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
