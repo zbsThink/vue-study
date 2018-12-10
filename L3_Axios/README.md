@@ -54,8 +54,8 @@
      config.data = qs.stringify(config.data)
     }
     ```
-    ```
    //拦截是发生在then和catch之前的，从这个打印结果就可以看出
+   ```
    console.log(config)
    return config;
    }, function (error) {
@@ -63,6 +63,7 @@
    return Promise.reject(error);
    });
     ```
+    
     ```
   // 添加响应拦截器
   Axios.interceptors.response.use(function (response) {
