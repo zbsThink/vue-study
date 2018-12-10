@@ -76,6 +76,7 @@
    
 6. 跨域处理
    1. 修改config index.js文件
+   
    ```
    proxyTable: {
       "/api":{
@@ -87,6 +88,7 @@
       }
     }
    ```
+   
   2. 添加host
    在main.js中添加`Vue.prototype.HOST = '/api'`
   3. 定义一个url放入$axios中
