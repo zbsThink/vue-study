@@ -37,17 +37,24 @@
             console.log(error)
         })
     4. 全局的axios默认值
+    ```
     axios.defaults.baseURL = 'https://api.example.com';
     axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
     axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    ```
+    
     5. 拦截器
     //主要是在数据传过来进行处理前，对数据进行判断是否正确或者进行参数转换
     // 添加请求拦截器
+    
+    ```
     Axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
-   if(config.method =='post'){
+    if(config.method =='post'){
      config.data = qs.stringify(config.data)
-   }
+    }
+    ```
+    ```
    //拦截是发生在then和catch之前的，从这个打印结果就可以看出
    console.log(config)
    return config;
@@ -55,17 +62,21 @@
    // 对请求错误做些什么
    return Promise.reject(error);
    });
-
-// 添加响应拦截器
-Axios.interceptors.response.use(function (response) {
+    ```
+    ```
+  // 添加响应拦截器
+  Axios.interceptors.response.use(function (response) {
   // 对响应数据做点什么
   return response;
-}, function (error) {
+ }, function (error) {
   // 对响应错误做点什么
   return Promise.reject(error);
-});
+ });
+   ```
+   
 6. 跨域处理
    1. 修改config index.js文件
+   ```
    proxyTable: {
       "/api":{
         target:"http://localhost:3000",
@@ -75,8 +86,9 @@ Axios.interceptors.response.use(function (response) {
         }
       }
     }
+   ```
   2. 添加host
-   在main.js中添加Vue.prototype.HOST = '/api'
+   在main.js中添加`Vue.prototype.HOST = '/api'`
   3. 定义一个url放入$axios中
   var url = this.HOST+'/login'
 注意：此种跨域解决方案，只能适用于测试阶段，打包的时候，不会具备服务器不能跨域了，后端解决
