@@ -10,7 +10,6 @@
        ```
     3. 请求
         * get请求：
-        
         ```
             this.$axios("http://www.wwtliu.com/sxtstu/news/newsdetails.php",{
             params:{
